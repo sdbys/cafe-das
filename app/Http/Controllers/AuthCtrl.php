@@ -12,6 +12,7 @@ class AuthCtrl extends Controller
     }
     function cek_login(Request $req){
         // validasi
+        //dd($req);
         $req -> validate(
             [
                 "email" => "required",

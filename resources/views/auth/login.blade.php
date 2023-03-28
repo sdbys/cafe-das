@@ -1,108 +1,52 @@
 <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CafeBima | Login</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>login page</title>
+  <link rel="stylesheet" href="{{ asset('dist/css/login.css') }}">
+  
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <img src="{{ asset('images/sadboi.png')}}" style="width: 100px" alt="logo">
+<body>
+  <section>
+    <div class="Leaves">
+      <div class="set">
+      <div><img src="{{asset('images/leaf_01.png')}}" alt="asdasda"></div>
+      <div><img src="{{asset('images/leaf_02.png')}}" alt=""></div> 
+      <div><img src="{{asset('images/leaf_03.png')}}" alt=""></div> 
+      <div><img src="{{asset('images/leaf_04.png')}}" alt=""></div> 
+      <div><img src="{{asset('images/leaf_01.png')}}" alt=""></div>
+      <div><img src="{{asset('images/leaf_02.png')}}" alt=""></div> 
+      <div><img src="{{asset('images/leaf_03.png')}}" alt=""></div> 
+      <div><img src="{{asset('images/leaf_04.png')}}" alt=""></div>   
+      </div> 
     </div>
-    <div class="card-body">
-      <p class="login-box-msg">Login Dulu Bro</p>
-
-      {{-- Alert --}}
-      @if (session("text"))
-        <div class="alert alert-{{ session("type") }}" role="alert">
-            {{ session("text") }}
+    <img src="{{ asset('images/bg.jpg')}}" alt="" class="bg">
+    <img src="{{ asset('images/girl.png')}}" alt="asdasd" class="girl">
+    <img src="{{ asset('images/trees.png')}}" alt="" class="trees">
+    <div class="login">
+      <h2>Sign in </h2>
+      <form action="{{('login')}}" method="post">
+      @csrf
+       <div class="input-box">
+          <input type="text" name="email" placeholder="email">
+        <div class="input-box">
+          <input type="password" name="password" placeholder="password">
         </div>
-      @endif
-      {{-- End Alert --}}
-
-      <form action="{{ url('auth/login') }}" method="post">
-        @csrf
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control @error("email") is-invalid @enderror" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-          @error('email')
-            <div id="email" class="invalid-feedback">
-                {{ $message }}
-            </div>
-          @enderror
+        <div class="input-box">
+          <input type="submit"  value="Sign In" id="btn">
         </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control @error("password") is-invalid @enderror" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-          @error('password')
-          <div id="password" class="invalid-feedback">
-              {{ $message }}
-          </div>
-          @enderror
+        <div class="group">
+          <a href="{{ url ('auth/registrasi')}}">register</a>
+          <a href="#">forgot password</a>
         </div>
-        {{-- <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-          </div> --}}
-          <!-- /.col -->
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-          </div>
-          <!-- /.col -->
-        </div>
+      </div>
+    </div>
       </form>
-
-      {{-- <div class="social-auth-links text-center mt-2 mb-3">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div> --}}
-      <!-- /.social-auth-links -->
-
-     
-      <p class="mb-6">
-        <a href="{{ route("signup") }}" class="text-center">Daftar Akun Baru</a>
-      </p>
-    </div>
-    <!-- /.card-body -->
-  </div>
-  <!-- /.card -->
-</div>
-<!-- /.login-box -->
-
-<!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+       
+</section>
 </body>
 </html>
